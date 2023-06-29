@@ -19,7 +19,7 @@ const BenefitContainer: React.FC<BenefitContainerProps> = ({infinite}) => {
     const [province, setProvince] = useRecoilState(provinceState);
 
     useEffect(() => {
-        fetch(`https://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/benefits?page=${0}&province=${province}&limit=5`)
+        fetch(`${process.env.REACT_APP_HOST}/benefits?page=${0}&province=${province}&limit=5`)
             .then((response) => response.json())
             .then((data) => {
                 let clone = {...state};
@@ -30,7 +30,7 @@ const BenefitContainer: React.FC<BenefitContainerProps> = ({infinite}) => {
         },[province])
 
     const loadFunc = (page: number) => {
-        fetch(`https://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/benefits?page=${page}&province=${province}&limit=5`)
+        fetch(`${process.env.REACT_APP_HOST}/benefits?page=${page}&province=${province}&limit=5`)
             .then((response) => response.json())
             .then((data) => {
                 let clone = {...state};

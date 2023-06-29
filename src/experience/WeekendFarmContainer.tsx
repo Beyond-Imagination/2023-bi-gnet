@@ -28,7 +28,7 @@ const WeekendFarmContainer: React.FC<ExperienceContainerProps> = ({infinite}) =>
     const [province, setProvince] = useRecoilState(provinceState);
 
     useEffect(() => {
-        fetch(`https://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/weekend-farms?page=${0}&province=${province}&limit=5`)
+        fetch(`${process.env.REACT_APP_HOST}/weekend-farms?page=${0}&province=${province}&limit=5`)
             .then((response) => response.json())
             .then((data) => {
                 let clone = {...state};
@@ -39,7 +39,7 @@ const WeekendFarmContainer: React.FC<ExperienceContainerProps> = ({infinite}) =>
     },[province])
 
     const loadFunc = (page: number) => {
-        fetch(`https://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/weekend-farms?page=${page}&province=${province}&limit=5`)
+        fetch(`${process.env.REACT_APP_HOST}/weekend-farms?page=${page}&province=${province}&limit=5`)
             .then((response) => response.json())
             .then((data) => {
                 let clone = {...state};
