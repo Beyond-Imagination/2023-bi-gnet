@@ -32,7 +32,7 @@ const HomeContainer: React.FC = () => {
             setIsOpened(true)
     }, [province]);
 
-    if(year == 0 || month == 0 || day == 0 || gender == 0 || terms == [false, false])
+    if(year == 0 || month == 0 || day == 0 || gender == 0 || terms && terms[0] == false && terms[1] == false)
         navigation("/terms");
 
     return (
